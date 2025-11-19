@@ -1,26 +1,37 @@
 import os
 
-USERS = {"admin@mail.com": ['Main Admin', 'admin']}
+USERS = {
+    "admin@mail.com": ["Main Admin", "admin"]
+}
 
 
 def clear_screen():
-    os.system('cls' if os.name == 'nt' else 'clear')
+    os.system("cls" if os.name == "nt" else "clear")
 
 
 def login():
     clear_screen()
-    gmail = input("Enter your email: ")
-    if gmail in USERS:
+    attempts = 0
+    while attempts < 3:
+        attempts += 1
+        print("""|----------------------------------|
+|Enter 0 to return to the main menu|
+|----------------------------------|\n""")
+
+        gmail = input("Enter your email: ")
+        if gmail == "0":
+            return False, "Returned to main menu"
+
+        if gmail not in USERS:
+            clear_screen()
+            print("User not found\n")
+            continue
+
         password = input("Enter your password: ")
         if password == USERS[gmail][1]:
-            return True, """|------------------------|
-|User logged successfully|
-|------------------------|\n"""
+            return True, "User logged in successfully"
         else:
-            return False, """|---------------------|
-|Password is incorrect|
-|---------------------|\n"""
-    else:
-        return False, """|--------------|
-|User not found|
-|--------------|\n"""
+            clear_screen()
+            print("Incorrect password\n")
+
+    return False, "Your device has been blocked"

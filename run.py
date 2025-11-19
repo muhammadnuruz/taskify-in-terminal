@@ -1,11 +1,8 @@
 from authentication import AuthenticationFunction
 
 if __name__ == "__main__":
-    authentication_status = AuthenticationFunction()
-    if authentication_status:
-        pass
+    auth = AuthenticationFunction()
+    if auth:
+        print("Welcome! Authentication successful!")
     else:
-        print("""|-----------|
-|Good Bye :)|
-|-----------|""")
-        exit()
+        print("|-----------|\n|Good Bye :)|\n|-----------|")
