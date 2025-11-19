@@ -2,7 +2,7 @@ from login import login, clear_screen
 from register import register
 
 
-def main_function():
+def AuthenticationFunction():
     clear_screen()
     while True:
         print("|-----------|")
@@ -22,14 +22,17 @@ def main_function():
         elif choice == '2':
             login_response, msg = login()
             if login_response:
+                clear_screen()
                 print(msg, end="\n")
+                return True
             else:
                 clear_screen()
                 print(msg, end="\n")
         elif choice == '3':
-            break
+            clear_screen()
+            return False
         else:
+            clear_screen()
             print("""|--------------|
 |Invalid choice|
 |--------------|\n""")
-            clear_screen()
