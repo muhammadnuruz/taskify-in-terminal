@@ -1,7 +1,5 @@
 from auth.login import clear_screen
 from tasks.create import createTask
-from tasks.update import updateTask
-from tasks.delete import deleteTask
 from tasks.view import viewTask
 
 
@@ -18,8 +16,10 @@ def taskManager(current_user: list, gmail: str):
         cmd = input("\nEnter your choice: ")
         if cmd == "1":
             viewTask(gmail)
+            clear_screen()
         elif cmd == "2":
             createTask(gmail)
+            clear_screen()
         elif cmd == "3":
             return False
         else:
