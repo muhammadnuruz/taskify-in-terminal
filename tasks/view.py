@@ -50,5 +50,5 @@ Status: {task['Status']}\n""")
                 clear_screen()
                 break
             else:
+                clear_screen()
                 print("Invalid choice.")
-                input("Press Enter to continue...")
