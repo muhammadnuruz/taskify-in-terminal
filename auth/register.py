@@ -1,4 +1,4 @@
-from login import clear_screen, USERS
+from auth.login import USERS, clear_screen
 
 
 def validate_password(password: str) -> bool:

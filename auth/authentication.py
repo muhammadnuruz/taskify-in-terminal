@@ -1,5 +1,5 @@
-from register import register
-from login import login, clear_screen
+from auth.register import register
+from auth.login import login, clear_screen
 
 
 def AuthenticationFunction():
@@ -19,15 +19,16 @@ def AuthenticationFunction():
             print(msg, "\n")
 
         elif choice == "2":
-            status, msg = login()
+            status, msg, user, gmail  = login()
             clear_screen()
             print(msg, "\n")
             if status:
-                return True
+                return True, msg, user, gmail
 
         elif choice == "3":
             clear_screen()
-            return False
+            return False, None, None, None
+
         else:
             clear_screen()
             print("Invalid choice\n")

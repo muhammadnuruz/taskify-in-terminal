@@ -20,7 +20,7 @@ def login():
 
         gmail = input("Enter your email: ")
         if gmail == "0":
-            return False, "Returned to main menu"
+            return False, "Returned to main menu", None
 
         if gmail not in USERS:
             clear_screen()
@@ -29,9 +29,9 @@ def login():
 
         password = input("Enter your password: ")
         if password == USERS[gmail][1]:
-            return True, "User logged in successfully"
+            return True, "User logged in successfully", USERS[gmail], gmail
         else:
             clear_screen()
             print("Incorrect password\n")
 
-    return False, "Your device has been blocked"
+    return False, "Your device has been blocked", None
